@@ -1,0 +1,65 @@
+header {
+  background-color: #333;
+}
+header a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 1rem;
+}
+h1,
+h3 {
+  color: #9f9e9e;
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+.flex-container,
+.slots {
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex-container > div {
+  padding: 1rem;
+}
+.flex-container .list {
+  width: 20%;
+}
+.flex-container .list > div {
+  border: 1px dashed #aaaaaa;
+  margin-bottom: 2rem;
+  height: 30%;
+}
+.flex-container .content {
+  width: 75%;
+  background-color: #ebebeb;
+}
+.content .slots {
+  height: 70%;
+}
+.content .slots > div {
+  margin: 0.5rem;
+  border: 1px dashed #aaaaaa;
+  resize: both;
+  overflow: auto;
+  background-color: white;
+}
+.btn-container {
+  text-align: right;
+}
+.btn {
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid #aaaaaa;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+.btn-primary {
+  color: white;
+  background-color: #0078ce;
+}
+.btn-secondary {
+  color: #aaaaaa;
+  background-color: white;
+}

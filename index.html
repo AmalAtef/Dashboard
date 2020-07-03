@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <header>
+      <a>dashbang</a>
+    </header>
+    <h1>Analytics Dashboard</h1>
+    <section class="flex-container">
+      <div class="list">
+        <div
+          id="div1"
+          class="chart-container"
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+        ></div>
+        <div
+          id="div2"
+          class="chart-container"
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+        ></div>
+        <div
+          id="div3"
+          class="chart-container"
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+        ></div>
+      </div>
+
+      <div class="content">
+        <h3>Drag a widget into an open dashboard slot</h3>
+        <div class="slots">
+          <div
+            id="slot0"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          ></div>
+          <div
+            id="slot1"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          ></div>
+          <div
+            id="slot2"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          ></div>
+        </div>
+        <div class="btn-container">
+          <button class="btn btn-secondary" onclick="onBack()">Back</button>
+          <button class="btn btn-primary" onclick="onFinish()">Finish</button>
+        </div>
+      </div>
+    </section>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
