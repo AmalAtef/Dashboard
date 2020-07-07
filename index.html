@@ -11,6 +11,10 @@
     <header>
       <a>dashbang</a>
     </header>
+
+    <div id="chart2-container" draggable="true" ondragstart="drag(event)">
+      chart will render here!
+    </div>
     <h1>Analytics Dashboard</h1>
     <section class="flex-container">
       <div class="list">
@@ -22,12 +26,6 @@
         ></div>
         <div
           id="div2"
-          class="chart-container"
-          ondrop="drop(event)"
-          ondragover="allowDrop(event)"
-        ></div>
-        <div
-          id="div3"
           class="chart-container"
           ondrop="drop(event)"
           ondragover="allowDrop(event)"
@@ -47,11 +45,6 @@
             ondrop="drop(event)"
             ondragover="allowDrop(event)"
           ></div>
-          <div
-            id="slot2"
-            ondrop="drop(event)"
-            ondragover="allowDrop(event)"
-          ></div>
         </div>
         <div class="btn-container">
           <button class="btn btn-secondary" onclick="onBack()">Back</button>
@@ -59,7 +52,10 @@
         </div>
       </div>
     </section>
-
+    <script
+      type="text/javascript"
+      src="node_modules/fusioncharts/fusioncharts.js"
+    ></script>
     <script src="./main.js"></script>
   </body>
 </html>

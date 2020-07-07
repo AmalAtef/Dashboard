@@ -1,3 +1,107 @@
+FusionCharts.ready(function() {
+  var salesChart = new FusionCharts({
+    type: "column3d",
+    renderAt: "chart0",
+    width: "100%",
+    height: "100%",
+    dataFormat: "json",
+    dataSource: {
+      chart: {
+        caption: "Burger King Monthly Sales",
+        captionFontColor: "#aaaaaa"
+      },
+      data: [
+        {
+          label: "Jan",
+          value: "400000"
+        },
+        {
+          label: "May",
+          value: "300000"
+        },
+        {
+          label: "July",
+          value: "500000"
+        },
+        {
+          label: "August",
+          value: "600000"
+        }
+      ]
+    }
+  });
+  salesChart.render();
+  var demoChart = new FusionCharts({
+    type: "funnel",
+    renderAt: "chart1",
+    width: "100%",
+    height: "100%",
+    dataFormat: "json",
+    dataSource: {
+      chart: {
+        // caption configuration
+        caption: "Marketing Funnel for Acme Inc.",
+        captionFontColor: "#fff",
+        captionFontSize: "22",
+        captionFontBold: "0",
+
+        // general chart configuration
+        baseFont: "Open Sans",
+        is2D: "1",
+        bgcolor: "#202C3D",
+        bgAlpha: "100",
+        plotFillAlpha: "100",
+        paletteColors:
+          "#495FBA, #FCE14D, #F7A35A, #90ED7D, #A56940, #456D4C, #4F6E89",
+        streamlinedData: "0",
+        labelFontColor: "#fff",
+        labelFontSize: "14",
+        showPlotBorder: "1",
+        plotBorderColor: "#FFF",
+        plotBorderThickness: "1",
+        smartLineColor: "#FFF",
+
+        // tooltip configuration
+        toolTipBgColor: "#000",
+        toolTipPadding: "15",
+        toolTipBorderRadius: "3",
+        toolTipBorderThickness: "1",
+        toolTipBorderColor: "#ccc",
+        toolTipBgAlpha: "70",
+        plotToolText:
+          "<div style='color:#FFF; font-size: 14px;'>$label: $valuek</div>"
+      },
+      data: [
+        {
+          label: "Website Visits",
+          value: "200"
+        },
+        {
+          label: "Downloads",
+          value: "123"
+        },
+        {
+          label: "Requested Price List",
+          value: "98"
+        },
+        {
+          label: "Contacted for more info",
+          value: "73"
+        },
+        {
+          label: "Purchased",
+          value: "39"
+        },
+        {
+          label: "Other Products",
+          value: "26"
+        }
+      ]
+    }
+  });
+  demoChart.render();
+});
+
 const slots = document.querySelectorAll(".slots div");
 
 const chartsContainer = document.querySelectorAll(".chart-container");
@@ -18,11 +122,17 @@ for (let i = 0; i < slots.length; i++) {
 for (let i = 0; i < chartsContainer.length; i++) {
   const slotId = localStorage.getItem(`chart${i}Sid`);
   if (slotId == null) {
-    chartsContainer[i].innerHTML = `<img src="./img/chart${i +
-      1}.JPG" id="chart${i}" draggable="true" ondragstart="drag(event)"/>`;
+    chartsContainer[
+      i
+    ].innerHTML = `<div id="chart${i}" draggable="true" ondragstart="drag(event)">
+    chart will render here!
+  </div>`;
   } else {
-    document.getElementById(slotId).innerHTML = `<img src="./img/chart${i +
-      1}.JPG" id="chart${i}" draggable="true" ondragstart="drag(event)"/>`;
+    document.getElementById(
+      slotId
+    ).innerHTML = `<div id="chart${i}" draggable="true" ondragstart="drag(event)">
+    chart will render here!
+  </div>`;
   }
 }
 
