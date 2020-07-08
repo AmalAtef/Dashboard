@@ -1,36 +1,39 @@
+const slots = document.querySelectorAll(".slots div");
+
+const chartsContainer = document.querySelectorAll(".chart-container");
+
+// default width and height for slots
+for (let i = 0; i < slots.length; i++) {
+  document.getElementById("slot" + i).style.width =
+    localStorage.getItem("slot" + i + "Width") == null
+      ? "40%"
+      : localStorage.getItem("slot" + i + "Width");
+
+  document.getElementById("slot" + i).style.height =
+    localStorage.getItem("slot" + i + "height") == null
+      ? "30%"
+      : localStorage.getItem("slot" + i + "height");
+}
+
+for (let i = 0; i < chartsContainer.length; i++) {
+  const slotId = localStorage.getItem(`chart${i}Sid`);
+  if (slotId == null) {
+    chartsContainer[
+      i
+    ].innerHTML = `<div id="chart${i}" draggable="true" ondragstart="drag(event)">
+    chart will render here!
+  </div>`;
+  } else {
+    document.getElementById(
+      slotId
+    ).innerHTML = `<div id="chart${i}" draggable="true" ondragstart="drag(event)">
+    chart will render here!
+  </div>`;
+  }
+}
+
+// charts
 FusionCharts.ready(function() {
-  var salesChart = new FusionCharts({
-    type: "column3d",
-    renderAt: "chart0",
-    width: "100%",
-    height: "100%",
-    dataFormat: "json",
-    dataSource: {
-      chart: {
-        caption: "Burger King Monthly Sales",
-        captionFontColor: "#aaaaaa"
-      },
-      data: [
-        {
-          label: "Jan",
-          value: "400000"
-        },
-        {
-          label: "May",
-          value: "300000"
-        },
-        {
-          label: "July",
-          value: "500000"
-        },
-        {
-          label: "August",
-          value: "600000"
-        }
-      ]
-    }
-  });
-  salesChart.render();
   var demoChart = new FusionCharts({
     type: "funnel",
     renderAt: "chart1",
@@ -99,42 +102,40 @@ FusionCharts.ready(function() {
       ]
     }
   });
+  var salesChart = new FusionCharts({
+    type: "column3d",
+    renderAt: "chart0",
+    width: "100%",
+    height: "100%",
+    dataFormat: "json",
+    dataSource: {
+      chart: {
+        caption: "Burger King Monthly Sales",
+        captionFontColor: "#aaaaaa"
+      },
+      data: [
+        {
+          label: "Jan",
+          value: "400000"
+        },
+        {
+          label: "May",
+          value: "300000"
+        },
+        {
+          label: "July",
+          value: "500000"
+        },
+        {
+          label: "August",
+          value: "600000"
+        }
+      ]
+    }
+  });
+  salesChart.render();
   demoChart.render();
 });
-
-const slots = document.querySelectorAll(".slots div");
-
-const chartsContainer = document.querySelectorAll(".chart-container");
-
-// default width and height for slots
-for (let i = 0; i < slots.length; i++) {
-  document.getElementById("slot" + i).style.width =
-    localStorage.getItem("slot" + i + "Width") == null
-      ? "40%"
-      : localStorage.getItem("slot" + i + "Width");
-
-  document.getElementById("slot" + i).style.height =
-    localStorage.getItem("slot" + i + "height") == null
-      ? "30%"
-      : localStorage.getItem("slot" + i + "height");
-}
-
-for (let i = 0; i < chartsContainer.length; i++) {
-  const slotId = localStorage.getItem(`chart${i}Sid`);
-  if (slotId == null) {
-    chartsContainer[
-      i
-    ].innerHTML = `<div id="chart${i}" draggable="true" ondragstart="drag(event)">
-    chart will render here!
-  </div>`;
-  } else {
-    document.getElementById(
-      slotId
-    ).innerHTML = `<div id="chart${i}" draggable="true" ondragstart="drag(event)">
-    chart will render here!
-  </div>`;
-  }
-}
 
 function allowDrop(e) {
   e.preventDefault();

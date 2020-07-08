@@ -25,12 +25,15 @@ h3 {
 .flex-container .list > div {
   border: 1px dashed #aaaaaa;
   margin-bottom: 2rem;
-  height: 30%;
+  height: 50%;
 }
 .flex-container .content {
   width: 75%;
   background-color: #ebebeb;
 }
+/* .chart-container div {
+  height: 100%;
+} */
 .content .slots {
   height: 70%;
 }
